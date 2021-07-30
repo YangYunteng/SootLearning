@@ -1,0 +1,219 @@
+public class Circle extends java.lang.Object
+{
+    private int id;
+    private static int circleCount;
+    private final double PI;
+    public int radius;
+
+    static void <clinit>()
+    {
+        int temp$0;
+
+        temp$0 = 0;
+
+        <Circle: int circleCount> = temp$0;
+
+        return;
+    }
+
+    public void <init>(int)
+    {
+        Circle this;
+        int radius, temp$1, temp$2, temp$3;
+        double temp$0;
+
+        this := @this: Circle;
+
+        radius := @parameter0: int;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        temp$0 = 3.1415;
+
+        this.<Circle: double PI> = temp$0;
+
+        temp$1 = <Circle: int circleCount>;
+
+        temp$2 = temp$1 + 1;
+
+        <Circle: int circleCount> = temp$2;
+
+        temp$3 = <Circle: int circleCount>;
+
+        this.<Circle: int id> = temp$3;
+
+        this.<Circle: int radius> = radius;
+
+        return;
+    }
+
+    public static void main(java.lang.String[])
+    {
+        Circle circle, temp$0;
+        int actualArea, temp$1, integerArea, temp$2;
+        java.lang.String[] args;
+
+        args := @parameter0: java.lang.String[];
+
+        temp$0 = new Circle;
+
+        specialinvoke temp$0.<Circle: void <init>(int)>(5);
+
+        circle = temp$0;
+
+        temp$1 = virtualinvoke circle.<Circle: int area(boolean)>(0);
+
+        actualArea = temp$1;
+
+        temp$2 = virtualinvoke circle.<Circle: int area(boolean)>(1);
+
+        integerArea = temp$2;
+
+        return;
+    }
+
+    public int area()
+    {
+        int result, x, temp$0, temp$1, y, temp$2, temp$3, temp$4, temp$5, temp$6, temp$7, temp$8, temp$9, temp$10, temp$11, temp$12, temp$13, temp$14, temp$15, temp$16;
+        Circle this;
+
+        this := @this: Circle;
+
+        result = 0;
+
+        temp$0 = this.<Circle: int radius>;
+
+        x = neg temp$0;
+
+     label1:
+        temp$1 = this.<Circle: int radius>;
+
+        if x <= temp$1 goto label2;
+
+        goto label8;
+
+     label2:
+        temp$2 = this.<Circle: int radius>;
+
+        y = neg temp$2;
+
+     label3:
+        temp$3 = this.<Circle: int radius>;
+
+        if y <= temp$3 goto label4;
+
+        goto label7;
+
+     label4:
+        temp$4 = x * x;
+
+        temp$5 = temp$4;
+
+        temp$6 = y * y;
+
+        temp$7 = this.<Circle: int radius>;
+
+        temp$8 = this.<Circle: int radius>;
+
+        temp$9 = temp$7 * temp$8;
+
+        temp$10 = temp$5 + temp$6;
+
+        if temp$10 <= temp$9 goto label5;
+
+        goto label6;
+
+     label5:
+        temp$11 = result;
+
+        temp$12 = temp$11 + 1;
+
+        result = temp$12;
+
+     label6:
+        temp$13 = y;
+
+        temp$14 = temp$13 + 1;
+
+        y = temp$14;
+
+        goto label3;
+
+     label7:
+        temp$15 = x;
+
+        temp$16 = temp$15 + 1;
+
+        x = temp$16;
+
+        goto label1;
+
+     label8:
+        return result;
+    }
+
+    public int area(boolean)
+    {
+        Circle this;
+        java.lang.Exception exception;
+        int temp$0, temp$1, temp$2, temp$5, temp$9;
+        boolean integerArea;
+        double temp$3, temp$4, temp$6, temp$7, temp$8;
+
+        this := @this: Circle;
+
+        integerArea := @parameter0: boolean;
+
+     label1:
+        temp$0 = staticinvoke <Circle: int getCircleCount()>();
+
+        if integerArea == 0 goto label4;
+
+        goto label2;
+
+     label2:
+        temp$1 = virtualinvoke this.<Circle: int area()>();
+
+     label3:
+        return temp$1;
+
+     label4:
+        goto label6;
+
+     label5:
+        exception := @caughtexception;
+
+        goto label6;
+
+     label6:
+        temp$2 = this.<Circle: int radius>;
+
+        temp$3 = (double) temp$2;
+
+        temp$4 = 1.0 * temp$3;
+
+        temp$5 = this.<Circle: int radius>;
+
+        temp$6 = (double) temp$5;
+
+        temp$7 = temp$4 * temp$6;
+
+        temp$8 = temp$7 * 3.1415;
+
+        temp$9 = (int) temp$8;
+
+        return temp$9;
+
+        catch java.lang.Exception from label1 to label3 with label5;
+        catch java.lang.Exception from label4 to label5 with label5;
+    }
+
+    public static int getCircleCount()
+    {
+        int temp$0;
+
+        temp$0 = <Circle: int circleCount>;
+
+        return temp$0;
+    }
+}
